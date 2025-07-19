@@ -1,0 +1,11 @@
+# Base da imagem (ajuste conforme seu app: n8n, node:20, etc)
+FROM n8nio/n8n:latest
+
+# Instala o FFmpeg
+USER root
+RUN apt-get update && apt-get install -y ffmpeg
+
+# Volta pro usuário padrão (importante pro n8n!)
+USER node
+
+# Resto das configurações (já vem pronto na imagem oficial)
